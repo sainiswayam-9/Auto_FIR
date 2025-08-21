@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FIR Detail - {{ fir.fir_number }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href = "../static/css/header.css">
+    <style>
+        .form-label {
+            font-weight: bold;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        .form-heading {
+            background-color: #f8f9fa;
+            padding: 0.75rem;
+            border-left: 5px solid #007bff;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+    </style>
+    <header>
+        <img src="{{ url_for('static', filename='images/india_emblem.png') }}" alt="Government of India Emblem" class="emblem-img">
+        <h1>Government of India</h1>
+        <h2>Smart FIR System</h2>
+    </header>
+</head>
+<body style="margin: 0; font-family: 'Poppins', sans-serif; background: linear-gradient(to right, #0072ff, #00c6ff); min-height: 100vh;">
+    {% include 'navbar.html' %}
+    <div class="container mt-5 mb-5">
+        <div class="bg-white p-4 rounded shadow">
+            <h2 class="mb-4 text-center text-primary">FIR Report (Form – IF1)</h2>
+
+            <div class="form-section">
+                <div class="form-heading">General Information</div>
+                <p><strong>FIR No:</strong> {{ fir.fir_number }}</p>
+                <p><strong>Date & Time:</strong> {{ fir.timestamp }}</p>
+                <p><strong>Police Station:</strong> {{ fir.police_station }}</p>
+                <p><strong>Sections Applied:</strong> {{ fir.sections }}</p>
+            </div>
+
+            <div class="form-section">
+                <div class="form-heading">Occurrence Details</div>
+                <p><strong>Date:</strong> {{ fir.date }}</p>
+                <p><strong>Time:</strong> {{ fir.time }}</p>
+                <p><strong>Place of Occurrence:</strong> {{ fir.place }}</p>
+            </div>
+
+            <div class="form-section">
+                <div class="form-heading">Complainant Details</div>
+                <p><strong>Name:</strong> {{ fir.first_name }} {{ fir.middle_name }} {{ fir.last_name }}</p>
+                <p><strong>Phone:</strong> {{ fir.phone }}</p>
+                <p><strong>Address:</strong> {{ fir.address }}</p>
+            </div>
+
+            <div class="form-section">
+                <div class="form-heading">Suspect Details</div>
+                <p><strong>Suspects:</strong> {{ fir.suspects }}</p>
+            </div>
+
+            <div class="text-center">
+                <a href="{{ url_for('view_firs') }}" class="btn btn-secondary">Back to FIR List</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Government of India | Ministry of Home Affairs</p>
+    </footer>  
+</body>
+</html>
