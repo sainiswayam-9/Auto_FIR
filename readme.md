@@ -24,7 +24,10 @@ An AI-powered web application designed to streamline the FIR filing process for 
 - 📄 **PDF Generation**  
   Converts completed FIR form into a downloadable PDF.
 
----
+--
+user name : admin
+password : admin123
+
 
 ## 🖥️ Tech Stack
 
